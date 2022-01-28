@@ -1,5 +1,6 @@
-//Create basic layout
-    //Top: Div to hold logo (left) and title
+
+import { area } from "./areas.js"
+import { guests } from "./guests.js"
 
     //Center: main div. 
         //Aligned left: three columns, two rows
@@ -12,122 +13,30 @@
     //Bottom: contact information
         //email, phone, address
 
-//Create database
-const database = {
-    guests [
-        {
-        id: 1,
-        firstName: Thom,
-        lastName: York
-        }, 
-        {
-        id: 2,
-        firstName: Curtis,
-        lastName: Jackson
-        }, 
-        {
-        id: 3,
-        firstName: Danny,
-        lastName: Carrey
-        }, 
-        {
-        id: 4,
-        firstName: Jermaine,
-        lastName: Cole
-        }, 
-        {
-        id: 5,
-        firstName: Anthony,
-        lastName: Bourdain
-        }
-     ],
-     areas [
-        {
-        id: 1,
-        name: "Lodge",
-        location: "Northwest"
-        },
-        {
-        id: 2,
-        name: "Lost Wolf ",
-        location: "North"
-        },
-        {
-        id: 3,
-        name: "Chamfort River",
-        location: "Northeast"
-        },
-        {
-        id: 4,
-        name: "Gander River",
-        location: "Southwest"
-        },
-        {
-        id: 5,
-        name: "Campgrounds",
-        location: "South"
-        },
-        {
-        id: 6,
-        name: "Pine Bluffs Trails",
-        location: "Southeast"
-        }
-     ],
-     services [
-        {
-        id: 1,
-        serviceName: ""
-        }
-     ]
-}
-    //Array holding multiple arrays of objects
-        //guests
-            //id
-            //firstname
-            //lastname
-        //areas
-            //id
-            //name
-            //location
-            //serviceId
-        //services
-            //id
-            //service
-        //serviceAreas (to connect many-to-many relationship)
-            //id
-            //areaId
-            //serviceId
+const mainContainer = document.querySelector("#container")
 
-//Function to get guests array
+const applicationHTML = `
+<article class="mainContainer">
+<article class="title-container">
+    <h1 id="title">Cider Falls</h1>
+    <div id="logo"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJw8DmDrojGH7deBRCZH4l05-pVCuyJ9Jk9lew%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1"></img></div> 
+</article>
+<article class="park-sections-container">
+    <section class="park-sections">
+    ${area()}
+    </section>
+    <section class="guest-list">
+    ${guests()}
+    </section>
+</article>
 
-//Function to get areas array
+<article class="contact">
+    (281)330-8004<br>
+    theArsonistHadOddlyShapedFeet@hotmail.com <br>
+    4029 Brick Church Pike, 
+    Nashville, TN
+</article>
+</article>
+`
 
-//Function to get services array
-
-//Function to get serviceAreas array
-
-//Function to iterate through areas and return id
-    //Return gets passed into  next function
-
-//Function to display services for each area - parameter of area
-    //Create empty html ul variable
-        //Iterate through serviceAreas array
-            //Check if parameter id matches serviceAreas.areaId
-                //If true, iterate through services
-                    //Check if service.id in services matches serviceAreas.serviceId
-                        //If true, add li of parameter.name to html variable
-    //Return html variable
-
-//Function to display location for each area - parameter of area
-    //Create empty html string variable
-        //Iterate through area parameter
-            //Add location property of parameter to html string variable
-    //Return html string 
-
-//Function to list guests
-    //Create empty html ul variable
-    //Iterate through guests
-        //Add firstName and lastName li to html ul variable
-
-
-
+mainContainer.innerHTML = applicationHTML
